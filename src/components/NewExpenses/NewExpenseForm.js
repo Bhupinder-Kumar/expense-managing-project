@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import './NewExpenseForm.css';
 
-const NewExpenseForm = () => {
+const NewExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -44,11 +44,12 @@ const NewExpenseForm = () => {
 
         const expeseData = {
             title : enteredTitle,
-            ammount : enteredAmount,
+            ammount : Number(enteredAmount),
             date : new Date(enteredDate)
         }
 
-        console.log(expeseData);
+        // console.log(expeseData);
+        props.onSaveDataHandler(expeseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');

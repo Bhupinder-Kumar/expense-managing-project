@@ -28,9 +28,14 @@ function App() {
       price : 786.95
     }
   ]
+
+  const addExpenseHandler = expense => {
+    console.log('app.js');
+    console.log(expense);
+  }
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpenseHandler={addExpenseHandler} />
         <Expenses items={expenses}/>
     </div>
   );
