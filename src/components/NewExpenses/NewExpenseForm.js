@@ -3,7 +3,7 @@ import './NewExpenseForm.css';
 
 const NewExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredPrice, setEnteredPrice] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
 
     // another way to write multipl states --> 
@@ -14,8 +14,8 @@ const NewExpenseForm = (props) => {
     //     setEnteredDate : '' 
     // })
 
-    const titleHandler = (e) => {
-        setEnteredTitle(e.target.value);
+    const titleHandler = (event) => {
+        setEnteredTitle(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     enteredTitle : e.target.value
@@ -31,12 +31,12 @@ const NewExpenseForm = (props) => {
         // })
     }
 
-    const amountHandler = e => {
-        setEnteredAmount(e.target.value);
+    const amountHandler = (event) => {
+        setEnteredPrice(event.target.value);
     }
 
-    const dateHandler = e => {
-        setEnteredDate(e.target.value);
+    const dateHandler = (event) => {
+        setEnteredDate(event.target.value);
     }
 
     const submitHandler = (event) => {
@@ -44,14 +44,14 @@ const NewExpenseForm = (props) => {
 
         const expeseData = {
             title : enteredTitle,
-            ammount : Number(enteredAmount),
+            price : Number(enteredPrice),
             date : new Date(enteredDate)
         }
 
         // console.log(expeseData);
         props.onSaveDataHandler(expeseData);
         setEnteredTitle('');
-        setEnteredAmount('');
+        setEnteredPrice('');
         setEnteredDate('');
     }
     return(
@@ -64,7 +64,7 @@ const NewExpenseForm = (props) => {
                     </div>
                     <div className='new-expense__control'>
                         <label>Amount</label>
-                        <input type="number" value={enteredAmount} min="0.01" step="0.01" onChange={amountHandler}/>
+                        <input type="number" value={enteredPrice} min="0.01" step="0.01" onChange={amountHandler}/>
                     </div>
                     <div className='new-expense__control'>
                         <label>Date</label>

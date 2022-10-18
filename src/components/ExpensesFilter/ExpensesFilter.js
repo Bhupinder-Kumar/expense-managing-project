@@ -9,7 +9,7 @@ const ExpensesFilter = (props) => {
     return(
         <Fragment>
             <div className="expenses-filter">
-                <div className="expenses-filter_control">
+                <div className="expenses-filter__control">
                     <label>Filter By Year</label>
                     <select value={props.selected} onChange={dropDownChangeHanlder}>
                         <option value="2022">2022</option>
