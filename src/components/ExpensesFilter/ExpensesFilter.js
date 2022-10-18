@@ -1,13 +1,17 @@
 import React, { Fragment } from "react";
 import '../ExpensesFilter/ExpensesFilter.css';
 
-const ExpensesFilter = () => {
+const ExpensesFilter = (props) => {
+    const dropDownChangeHanlder = (event) => {
+        props.onChangeFilter(event.target.value);
+    }
+
     return(
         <Fragment>
             <div className="expenses-filter">
                 <div className="expenses-filter_control">
                     <label>Filter By Year</label>
-                    <select>
+                    <select value={props.selected} onChange={dropDownChangeHanlder}>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
