@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Expenses from "././components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpense";
 
-const dummy_Expenses = [
+const Dummy_Expenses = [
   {
     id : 'e1',
     title : 'Car Insurance',
@@ -30,7 +30,8 @@ const dummy_Expenses = [
 ];
 
 function App() {
-  const [expenses, setExpenses] = useState(dummy_Expenses);
+  const [expenses, setExpenses] = useState(Dummy_Expenses);
+  
 
   const addExpenseHandler = (expense) => {
     // console.log('app.js');
@@ -42,7 +43,7 @@ function App() {
   }
   return (
     <div>
-      <NewExpense onAddExpenseHandler={addExpenseHandler} />
+      <NewExpense onAddExpense={addExpenseHandler} />
         <Expenses items={expenses}/>
     </div>
   );

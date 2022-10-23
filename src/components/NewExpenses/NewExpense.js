@@ -1,20 +1,20 @@
 import React, { Fragment } from 'react';
-import NewExpenseForm from './NewExpenseForm';
+import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
 const NewExpense = (props) => {
-    const onExpenseDataSave = (entireExpenseData) => {
+    const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
-            ...entireExpenseData,
+            ...enteredExpenseData,
             id : Math.random().toString()
         }
         // console.log(expenseData);
-        props.onAddExpenseHandler(expenseData);
+        props.onAddExpense(expenseData);
     }
     return(
         <Fragment>
             <div className='new-expense'>
-                <NewExpenseForm onSaveDataHandler={onExpenseDataSave}/>
+                <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
             </div>
         </Fragment>
     )
